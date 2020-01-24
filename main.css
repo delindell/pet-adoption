@@ -1,3 +1,10 @@
 body {
     background-color: darkgreen;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cards {
+    border: black 2px;
+
 }
