@@ -2,10 +2,33 @@ body {
     background-color: darkgreen;
     display: flex;
     flex-wrap: wrap;
+
 }
 
-.cards {
-    border: black 2px;
-    display: flex;
+#pets {
+    display: flexbox;
+    box-shadow: 5px 5px 5px 5px #BDBDBD;
+    max-width: 300px;
+    min-height: 500px;
+    
+    height: auto;
+    margin-bottom: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+    flex-wrap: wrap;
+    background: #3F51B5;
+    flex-flow: column;
+    padding-bottom: 5px;
 
+}
+
+.color {
+    text-align: center;
+}
+
+img {
+    height: 200px;     
+    display: flex;
+    align-items: center;
+    justify-content: center;   
 }

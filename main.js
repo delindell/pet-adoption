@@ -60,11 +60,11 @@ const createPetCards = () => {
     let domString = '';
     for (let i = 0; i < arrOfPets.length; i++) {
         domString += `<div class="cards">`;
-        domString += `<header><h1>${arrOfPets[i].name}</h1></header>`;
-        domString += `<div class="image"><img src="${arrOfPets[i].image} alt="Picture of ${arrOfPets[i].name}></div>`
-        domString += `<section>${arrOfPets[i].color}</section>`;
-        domString += `<p>${arrOfPets[i].specialSkill}</p>`
-        domString += `<footer>${arrOfPets[i].type}</footer>`
+        domString += `<header class="head"><h1 class="title">${arrOfPets[i].name}</h1></header>`;
+        domString += `<div class="image"><img src="${arrOfPets[i].image} alt="Picture of ${arrOfPets[i].name}>`
+        domString += `<section class="color">${arrOfPets[i].color}</section>`;
+        domString += `<p class="skill">${arrOfPets[i].specialSkill}</p>`
+        domString += `<footer class="foot">${arrOfPets[i].type}</footer>`
         domString += `</div>`
         
     }
