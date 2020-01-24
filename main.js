@@ -5,43 +5,43 @@ const arrOfPets = [
         image: "https://live.staticflickr.com/5821/23232445753_23b8918c8b_c.jpg",
         name: 'Alfred',
         color: 'Black',
-        specialSkill: 'Collector of cuddles',
+        specialSkill: 'Collector of cuddles and archealogical expert of ancient Egypt.',
         type: 'Dog'
     },
     {
         image: "https://live.staticflickr.com/5821/23232445753_23b8918c8b_c.jpg",
-        name: 'Alfred',
-        color: 'Black',
-        specialSkill: 'Collector of cuddles',
+        name: 'Rupert',
+        color: 'Orange',
+        specialSkill: 'Consistently learning topics of mild importance. Staring contest World Champion of the the Universe.',
+        type: 'Cat'
+    },
+    {
+        image: "https://live.staticflickr.com/5821/23232445753_23b8918c8b_c.jpg",
+        name: 'Miles',
+        color: 'Yellow',
+        specialSkill: 'Ponderer of life\'s greatest questions. Often can be found begging for more treats and belly rubs.',
         type: 'Dog'
     },
     {
         image: "https://live.staticflickr.com/5821/23232445753_23b8918c8b_c.jpg",
-        name: 'Alfred',
-        color: 'Black',
-        specialSkill: 'Collector of cuddles',
-        type: 'Dog'
+        name: 'Ricky',
+        color: 'Green',
+        specialSkill: 'Collector of bones of ancient origin, postage stamps, and early American bank notes.',
+        type: 'Dino'
     },
     {
         image: "https://live.staticflickr.com/5821/23232445753_23b8918c8b_c.jpg",
-        name: 'Alfred',
+        name: 'Julian',
         color: 'Black',
-        specialSkill: 'Collector of cuddles',
-        type: 'Dog'
+        specialSkill: 'Uses catnip often. Has been known to associate with unsavory kitties.',
+        type: 'Cat'
     },
     {
         image: "https://live.staticflickr.com/5821/23232445753_23b8918c8b_c.jpg",
-        name: 'Alfred',
-        color: 'Black',
-        specialSkill: 'Collector of cuddles',
-        type: 'Dog'
-    },
-    {
-        image: "https://live.staticflickr.com/5821/23232445753_23b8918c8b_c.jpg",
-        name: 'Alfred',
-        color: 'Black',
-        specialSkill: 'Collector of cuddles',
-        type: 'Dog'
+        name: 'Dingus',
+        color: 'Grey',
+        specialSkill: 'Owns every Land Before Time movie on DVD, has been known to hula dance.',
+        type: 'Dino'
     }
     
 
@@ -60,11 +60,11 @@ const createPetCards = () => {
     let domString = '';
     for (let i = 0; i < arrOfPets.length; i++) {
         domString += `<div class="cards">`;
-        domString += `<header><h1>${arrOfPets[i].name}</h1></header>`;
-        domString += `<div class="image"><img src="${arrOfPets[i].image} alt="Picture of ${arrOfPets[i].name}></div>`
-        domString += `<section>${arrOfPets[i].color}</section>`;
-        domString += `<p>${arrOfPets[i].specialSkill}</p>`
-        domString += `<footer>${arrOfPets[i].type}</footer>`
+        domString += `<header class="head"><h1 class="title">${arrOfPets[i].name}</h1></header>`;
+        domString += `<section class="image"><img src="${arrOfPets[i].image} alt="Picture of ${arrOfPets[i].name}></section>`
+        domString += `<section class="color">${arrOfPets[i].color}</section>`;
+        domString += `<p class="skill">${arrOfPets[i].specialSkill}</p>`
+        domString += `<footer class="foot">${arrOfPets[i].type}</footer>`
         domString += `</div>`
         
     }
