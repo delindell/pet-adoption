@@ -1,4 +1,4 @@
-console.log('hey yo')
+
 
 const arrOfPets = [
     {
@@ -55,69 +55,67 @@ const printToDom = (divId, textToPrint) => {
 
 };
 
-//const createButton = () => {
-//    let domButton = '';
-//    for (let i = 0; i < arrOfPets.length; i++) {
-//        if (arrOfPets[i].type === 'Dog') {
-//            domButton += `<button class="dbutt">Dogs</button>`
-//            console.log('hello')
-//        } else if (arrOfPets[i].type === 'Cat') {
-//             domButton += `<button class="cbutt">Cats</button>`    
-//        } else if (arrOfPets[i].type === 'Dino') {
-//            domButton += `<button class="dinobutt">Dinos</button>`
-//        } else {
-//            domButton += `<button class="abutt">All Pets</button>`
-//        }  
-//    }
-//    printToDom ('button', domButton)
-//}
 
-const createButton = () => {
-    let domButton = `<button class="dbutt">Dogs</button><button class="cbutt">Cats</button><button class="dinobutt">Dinos</button><button class="abutt">All Pets</button>`
-    printToDom ('button', domButton);
-    domButton.addEventListener("click", function(){ alert("Hello World!"); });
-    
-
-}
-
-
-
-
-
-
-const createPetCards = () => {
+const createPetCards = (anotherArray) => {
     let domString = '';
-    for (let i = 0; i < arrOfPets.length; i++) {
-        if (arrOfPets[i].type === 'Dog'){
+    for (let i = 0; i < anotherArray.length; i++) {
+        if (anotherArray[i].type === 'Dog'){
         domString += `<div class="cards">`;
-        domString += `<header class="dhead"><h1 class="title">${arrOfPets[i].name}</h1></header>`;
-        domString += `<section class="image"><img src="${arrOfPets[i].image} alt="Picture of ${arrOfPets[i].name}></section>`
-        domString += `<section class="color"><strong>Color</strong>:   ${arrOfPets[i].color}</section>`;
-        domString += `<p class="skill"><strong>Special Skills</strong>:    ${arrOfPets[i].specialSkill}</p>`
-        domString += `<footer class="fdog">${arrOfPets[i].type}</footer>`
+        domString += `<header class="dhead"><h1 class="title">${anotherArray[i].name}</h1></header>`;
+        domString += `<section class="image"><img src="${anotherArray[i].image} alt="Picture of ${arrOfPets[i].name}></section>`
+        domString += `<section class="color"><strong>Color</strong>:   ${anotherArray[i].color}</section>`;
+        domString += `<p class="skill"><strong>Special Skills</strong>:    ${anotherArray[i].specialSkill}</p>`
+        domString += `<footer class="fdog">${anotherArray[i].type}</footer>`
         domString += `</div>`
         }
-        else if (arrOfPets[i].type === 'Cat') {
+        else if (anotherArray[i].type === 'Cat') {
         domString += `<div class="cards">`;
-        domString += `<header class="chead"><h1 class="title">${arrOfPets[i].name}</h1></header>`;
-        domString += `<section class="image"><img src="${arrOfPets[i].image} alt="Picture of ${arrOfPets[i].name}></section>`
-        domString += `<section class="color"><strong>Color</strong>:   ${arrOfPets[i].color}</section>`;
-        domString += `<p class="skill"><strong>Special Skills</strong>:    ${arrOfPets[i].specialSkill}</p>`
-        domString += `<footer class="fcat">${arrOfPets[i].type}</footer>`
+        domString += `<header class="chead"><h1 class="title">${anotherArray[i].name}</h1></header>`;
+        domString += `<section class="image"><img src="${anotherArray[i].image} alt="Picture of ${arrOfPets[i].name}></section>`
+        domString += `<section class="color"><strong>Color</strong>:   ${anotherArray[i].color}</section>`;
+        domString += `<p class="skill"><strong>Special Skills</strong>:    ${anotherArray[i].specialSkill}</p>`
+        domString += `<footer class="fcat">${anotherArray[i].type}</footer>`
         domString += `</div>`
         }
         else {
         domString += `<div class="cards">`;
-        domString += `<header class="dinohead"><h1 class="title">${arrOfPets[i].name}</h1></header>`;
-        domString += `<section class="image"><img src="${arrOfPets[i].image} alt="Picture of ${arrOfPets[i].name}></section>`
-        domString += `<section class="color"><strong>Color</strong>:   ${arrOfPets[i].color}</section>`;
-        domString += `<p class="skill"><strong>Special Skills</strong>:    ${arrOfPets[i].specialSkill}</p>`
-        domString += `<footer class="fdino">${arrOfPets[i].type}</footer>`
+        domString += `<header class="dinohead"><h1 class="title">${anotherArray[i].name}</h1></header>`;
+        domString += `<section class="image"><img src="${anotherArray[i].image} alt="Picture of ${arrOfPets[i].name}></section>`
+        domString += `<section class="color"><strong>Color</strong>:   ${anotherArray[i].color}</section>`;
+        domString += `<p class="skill"><strong>Special Skills</strong>:    ${anotherArray[i].specialSkill}</p>`
+        domString += `<footer class="fdino">${anotherArray[i].type}</footer>`
         domString += `</div>`
         }
     }
     printToDom('pets', domString); 
 }
-console.log(arrOfPets);
-createPetCards();
-createButton();
+
+const findPets = (e) => {
+    const buttonId = e.target.id;
+    if (buttonId === 'All') {
+        createPetCards(arrOfPets);
+    } else {
+        const newArrOfPets =[];
+        for (let i = 0; i < arrOfPets.length; i++) {
+            if(arrOfPets[i].type === buttonId) {
+                newArrOfPets.push(arrOfPets[i])
+            }
+     
+       }
+       createPetCards(newArrOfPets);
+    }
+}
+
+const event = () => {
+    document.getElementById('Dog').addEventListener('click', findPets)
+    document.getElementById('Cat').addEventListener('click', findPets)
+    document.getElementById('Dino').addEventListener('click', findPets)
+    document.getElementById('All').addEventListener('click', findPets)
+}
+
+const init = () => {
+    createPetCards(arrOfPets);
+    event ();
+}
+
+init();
